@@ -35,7 +35,7 @@ const Slug = async ({ params }: SlugProps) => {
   const category = CATEGORY[slug];
 
   if (!category) {
-    return <div>Category not found</div>;
+    return <div>Category not found!</div>;
   }
 
   return (
