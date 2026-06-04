@@ -43,8 +43,8 @@ const Slug = async ({ params }: SlugProps) => {
       <h1>{category.name}</h1>
       <p>{category.description}</p>
       <ul>
-        {category.items.map((item, index) => (
-          <li key={index}>{item}</li>
+        {category.items.map((item) => (
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </div>
