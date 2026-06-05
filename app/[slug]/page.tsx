@@ -12,30 +12,27 @@ interface SlugProps {
 const Slug = async ({params}: SlugProps) => {
   const {slug} = await params
   const category = CATEGORIES[slug]
-  
-  // Guard clause to handle invalid slugs gracefully
-  if (!category) {
-    return <div>Category not found</div>
-  }
-  
+
   return (
-    <div>
-      <h1>{category.name}</h1>
+    <div className="pt-4 flex flex-col items-center gap-4 bg-zinc-700 min-h-screen">
+      <h1 className="font-bold capitalize text-lg">{category.name}</h1>
       <p>{category.description}</p>
-      
-      {/* Size Dropdown */}
-      <select name="size" id="size">
+      <div>
+        <label htmlFor="colour">colour:</label>
+        <select name="colour" id="colour">
+        {category.colour.map(cl => (
+          <option className="bg-amber-800" key={cl} value="colour">{cl}</option>
+        ))}
+        </select>
+        </div>
+      <div>
+        <label htmlFor="size">size:</label>
+        <select name="size" id="size">
         {category.size.map(sz => (
-          <option value={sz} key={sz}>{sz}</option>
+          <option className="bg-amber-800" key={sz} value="colour">{sz}</option>
         ))}
-      </select>
-      
-      {/* Colour Dropdown */}
-      <select name="colour" id="colour">
-        {category.colour.map(col => (
-          <option value={col} key={col}>{col}</option>
-        ))}
-      </select>
+        </select>
+        </div>
     </div>
   )
 }
